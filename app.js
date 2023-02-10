@@ -13,18 +13,22 @@ const database = { bills: [] }
  * Assume the medical bill is in req.body.medicalBill
  */
 app.post('/items', (req, res) => {
-    const { medicalBill } = req.body
+    try {
+        const { medicalBill } = req.body
 
-    if (!isValidBill(medicalBill)) {
-        res.status(400).json({
-            message: 'Medical bill format not allowed',
-            medicalBill
-        })
-    } else {
-        database.bills.push(medicalBill)
-        res.status(200).json({
-            message: 'Created'
-        })
+        if (!isValidBill(medicalBill)) {
+            res.status(400).json({
+                message: 'Medical bill format not allowed',
+                medicalBill
+            })
+        } else {
+            database.bills.push(medicalBill)
+            res.status(200).json({
+                message: 'Created'
+            })
+        }
+    } catch (e) {
+        res.status(400).json({ message: 'Bad input' })
     }
 })
 
