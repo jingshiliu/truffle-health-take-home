@@ -9,4 +9,4 @@
 #### And last, run the program!
 `node app.js`
 
-Note: The program runs on port 3000 by default, you can change the port number by modifying code in app.js or set the environment varible `PORT` to any port number avaiable you like.
+Note: The program runs on port `3000` by default, you can change the port number by modifying code in app.js or set the environment varible `PORT` to any port number avaiable you like.
